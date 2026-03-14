@@ -123,14 +123,21 @@ class OrderRepository:
     
 
 class PaymentStatusRepository:
-
     def __init__(self, cursor):
         self.cursor = cursor
 
-    def get_by_name(self, name:str):
+    def get_by_name(self, name: str) -> int:
         self.cursor.execute(
             "SELECT id FROM payment_statuses WHERE name = %s",
             (name,)
+        )
+        result = self.cursor.fetchone()
+        return result[0] if result else None
+    
+    def get_by_id(self, status_id: int) -> str:
+        self.cursor.execute(
+            "SELECT name FROM payment_statuses WHERE id = %s",
+            (status_id,)
         )
         result = self.cursor.fetchone()
         return result[0] if result else None

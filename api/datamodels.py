@@ -41,3 +41,20 @@ class Payment(BaseModel):
     created_at: datetime
     updated_at: datetime
 
+class CreateBankPaymentRequest(BaseModel):
+    order_id: uuid
+    amount: float
+
+class CreateBankPaymentResponse(BaseModel):
+    payment_id: uuid
+    external_id: str
+
+class CheckBankPaymentRequest(BaseModel):
+    payment_id: uuid
+
+class CheckBankPaymentResponse(BaseModel):
+    payment_id: str
+    status_id: int
+    amount: float
+    payment_date: datetime
+    
