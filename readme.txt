@@ -22,7 +22,7 @@ BankPaymentSystem/
 └── worker.py          # Фоновый воркер
 Установка
 bash
-git clone https://github.com/Roherim/BankPaymantSystem.git
+git clone https://github.com/Roherim/BankPaymentSystem
 cd BankPaymentSystem
 
 python -m venv venv
